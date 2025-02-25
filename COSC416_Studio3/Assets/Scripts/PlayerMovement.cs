@@ -22,8 +22,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePlayer(Vector2 inputVector)
     {
+        Vector3 velocity = playerRB.linearVelocity;
         Vector3 inputXYZPlane = new(inputVector.x, 0, inputVector.y);
-        playerRB.AddForce(inputXYZPlane * speed);
+        playerRB.linearVelocity = new Vector3(inputXYZPlane.x *speed, velocity.y, inputXYZPlane.z*speed);
     }
 
     public void PlayerJump(bool wantToJump)
