@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Surface
   - Coin
+  - Edge
   layers:
   - Default
   - TransparentFX

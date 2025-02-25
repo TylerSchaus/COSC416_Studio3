@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.collider.CompareTag("Surface"))
         {
             jumpReady = true; 
-        }
+        } 
+    
     }
 }

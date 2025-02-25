@@ -3695,6 +3695,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3634711686125232348, guid: d2beb441349458b48a8928e56c981751, type: 3}
+      propertyPath: jumpForce
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634711686125232348, guid: d2beb441349458b48a8928e56c981751, type: 3}
       propertyPath: freeLookCamera
       value: 
       objectReference: {fileID: 851560168}
