@@ -577,7 +577,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.8
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -586,7 +586,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.3
+    m_Strength: 0.5
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -1342,7 +1342,7 @@ MonoBehaviour:
   TargetOffset: {x: 0, y: 0, z: 0}
   TrackerSettings:
     BindingMode: 4
-    PositionDamping: {x: 0, y: 0, z: 0}
+    PositionDamping: {x: 1, y: 0, z: 0}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
@@ -1567,6 +1567,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60fd8a5880e8dae4faf62e711f8b47e3, type: 3}
+--- !u!114 &1010710045 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3634711686125232348, guid: d2beb441349458b48a8928e56c981751, type: 3}
+  m_PrefabInstance: {fileID: 8601617949665521570}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6861ed19a8b0f498ae9d7a9cdb689f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1010710049 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9129950625578548019, guid: d2beb441349458b48a8928e56c981751, type: 3}
@@ -2566,7 +2577,7 @@ Transform:
   m_GameObject: {fileID: 1497649722}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.72, y: 11.5, z: 14.94}
+  m_LocalPosition: {x: 4.72, y: 12, z: 14.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3441,7 +3452,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.8
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -3450,7 +3461,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.3
+    m_Strength: 0
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -3695,13 +3706,45 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3634711686125232348, guid: d2beb441349458b48a8928e56c981751, type: 3}
+      propertyPath: dashForce
+      value: 325
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634711686125232348, guid: d2beb441349458b48a8928e56c981751, type: 3}
       propertyPath: jumpForce
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3634711686125232348, guid: d2beb441349458b48a8928e56c981751, type: 3}
       propertyPath: freeLookCamera
       value: 
       objectReference: {fileID: 851560168}
+    - target: {fileID: 5230556737313996513, guid: d2beb441349458b48a8928e56c981751, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 816cd40890cc9cc4ba3262ed727e24b8, type: 2}
+    - target: {fileID: 5845721677577025261, guid: d2beb441349458b48a8928e56c981751, type: 3}
+      propertyPath: Dashing.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845721677577025261, guid: d2beb441349458b48a8928e56c981751, type: 3}
+      propertyPath: Dashing.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1010710045}
+    - target: {fileID: 5845721677577025261, guid: d2beb441349458b48a8928e56c981751, type: 3}
+      propertyPath: Dashing.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845721677577025261, guid: d2beb441349458b48a8928e56c981751, type: 3}
+      propertyPath: Dashing.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayerDash
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845721677577025261, guid: d2beb441349458b48a8928e56c981751, type: 3}
+      propertyPath: Dashing.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845721677577025261, guid: d2beb441349458b48a8928e56c981751, type: 3}
+      propertyPath: Dashing.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7552331627612568319, guid: d2beb441349458b48a8928e56c981751, type: 3}
       propertyPath: m_Name
       value: Player

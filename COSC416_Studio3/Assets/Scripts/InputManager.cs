@@ -5,6 +5,9 @@ public class InputManager : MonoBehaviour
 {
     public UnityEvent<Vector2> OnMove = new UnityEvent<Vector2>();
     public UnityEvent<bool> Jumping = new UnityEvent<bool>();
+    public UnityEvent<bool> Dashing = new UnityEvent<bool>();
+    private bool jumpReleased = true;
+    private bool dashReleased = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,6 +20,7 @@ public class InputManager : MonoBehaviour
 
         Vector2 inputVector = Vector2.zero;
         bool jump = false;
+        bool dash = false;
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -34,13 +38,35 @@ public class InputManager : MonoBehaviour
         {
             inputVector += Vector2.left;
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            jump = true; 
+            if (jumpReleased)
+            {
+                jump = true;
+                jumpReleased = false;
+            }   
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            jumpReleased = true;
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (dashReleased)
+            {
+                dash = true;
+                dashReleased = false;
+            }
+       
+        }
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            dashReleased = true;
         }
 
         OnMove?.Invoke(inputVector);
         Jumping?.Invoke(jump); 
+        Dashing?.Invoke(dash);
     }
 }
 

@@ -7,8 +7,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody playerRB; 
     [SerializeField] public float speed = 5f;
     [SerializeField] public float jumpForce = 15f;
+    [SerializeField] public float dashForce = 75f;
     [SerializeField] private CinemachineCamera freeLookCamera;
-    private bool jumpReady = false; 
+    private bool jumpReady = false;
+    private bool doubleJumpReady = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,12 +37,29 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayerJump(bool wantToJump)
     {
-        if (wantToJump && jumpReady)
+        if (wantToJump && (jumpReady || doubleJumpReady))
         {
    
             Vector3 jumpPlane = new(0, 1, 0);
             playerRB.AddForce(jumpPlane * jumpForce, ForceMode.Impulse);
-            jumpReady = false;
+            if (jumpReady)
+            {
+                jumpReady = false;
+            }
+            else if (doubleJumpReady)
+            {
+                doubleJumpReady = false;
+            }
+            
+        }
+    }
+
+    public void PlayerDash(bool wantToDash)
+    {
+        if (wantToDash)
+        {
+            Vector3 dashDirection = transform.forward;
+            playerRB.AddForce(dashDirection * dashForce, ForceMode.Impulse);
         }
     }
 
@@ -48,7 +67,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.collider.CompareTag("Surface"))
         {
-            jumpReady = true; 
+            jumpReady = true;
+            doubleJumpReady = true;
         } 
     
     }
