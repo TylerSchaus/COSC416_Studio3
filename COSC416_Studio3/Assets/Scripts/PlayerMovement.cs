@@ -1,4 +1,5 @@
 using System;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -6,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody playerRB; 
     [SerializeField] public float speed = 5f;
     [SerializeField] public float jumpForce = 15f;
+    [SerializeField] private CinemachineCamera freeLookCamera;
     private bool jumpReady = false; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,8 +25,12 @@ public class PlayerMovement : MonoBehaviour
     public void MovePlayer(Vector2 inputVector)
     {
         Vector3 velocity = playerRB.linearVelocity;
-        Vector3 inputXYZPlane = new(inputVector.x, 0, inputVector.y);
-        playerRB.linearVelocity = new Vector3(inputXYZPlane.x *speed, velocity.y, inputXYZPlane.z*speed);
+
+        transform.rotation = Quaternion.Euler(0, freeLookCamera.transform.rotation.eulerAngles.y, 0);
+
+        Vector3 directionalMovement = transform.forward * inputVector.y + transform.right * inputVector.x;
+
+        playerRB.linearVelocity = new Vector3(directionalMovement.x *speed, velocity.y, directionalMovement.z*speed);
     }
 
     public void PlayerJump(bool wantToJump)
