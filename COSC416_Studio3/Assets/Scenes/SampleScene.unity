@@ -1342,7 +1342,7 @@ MonoBehaviour:
   TargetOffset: {x: 0, y: 0, z: 0}
   TrackerSettings:
     BindingMode: 4
-    PositionDamping: {x: 1, y: 0, z: 0}
+    PositionDamping: {x: 0, y: 0, z: 0}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
@@ -3711,7 +3711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3634711686125232348, guid: d2beb441349458b48a8928e56c981751, type: 3}
       propertyPath: jumpForce
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3634711686125232348, guid: d2beb441349458b48a8928e56c981751, type: 3}
       propertyPath: freeLookCamera
@@ -3720,7 +3720,7 @@ PrefabInstance:
     - target: {fileID: 5230556737313996513, guid: d2beb441349458b48a8928e56c981751, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 13400000, guid: 816cd40890cc9cc4ba3262ed727e24b8, type: 2}
+      objectReference: {fileID: 13400000, guid: aa8238c5490a863479f024494085742d, type: 2}
     - target: {fileID: 5845721677577025261, guid: d2beb441349458b48a8928e56c981751, type: 3}
       propertyPath: Dashing.m_PersistentCalls.m_Calls.Array.size
       value: 1
