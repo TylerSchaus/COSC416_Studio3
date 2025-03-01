@@ -57,8 +57,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (wantToDash)
         {
-            Vector3 dashDirection = transform.forward;
-            playerRB.AddForce(dashDirection * dashForce, ForceMode.Impulse);
+          
+            Vector3 dashDirection = transform.forward * dashForce - playerRB.linearVelocity;
+            dashDirection.y = 0; // Maintain current vertical speed
+            playerRB.AddForce(dashDirection, ForceMode.VelocityChange);
+
         }
     }
 
