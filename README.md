@@ -1,6 +1,8 @@
 ### Studio 3 Submission 
 ---
-https://github.com/user-attachments/assets/8fdc3099-86c9-435b-bc6d-67474318d3dc
+
+https://github.com/user-attachments/assets/2b1649e1-3285-4959-8bcf-16353630b83e
+
 
 ### Features Implemented: 
 - Control and move a player from a third person perspective (WASD keys).
