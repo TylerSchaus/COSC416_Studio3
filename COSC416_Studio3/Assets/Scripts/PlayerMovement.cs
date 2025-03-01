@@ -39,9 +39,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (wantToJump && (jumpReady || doubleJumpReady))
         {
-   
-            Vector3 jumpPlane = new(0, 1, 0);
-            playerRB.AddForce(jumpPlane * jumpForce, ForceMode.Impulse);
+             playerRB.linearVelocity = new Vector3(playerRB.linearVelocity.x, jumpForce, playerRB.linearVelocity.z);
+
             if (jumpReady)
             {
                 jumpReady = false;
@@ -70,6 +69,8 @@ public class PlayerMovement : MonoBehaviour
             jumpReady = true;
             doubleJumpReady = true;
         } 
-    
+     
     }
+
+    
 }
